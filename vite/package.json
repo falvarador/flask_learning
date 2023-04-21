@@ -1,0 +1,27 @@
+{
+  "name": "flask_learning",
+  "version": "0.0.1",
+  "description": "Learning Flask",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run vite:dev\" \"npm run python:dev\"",
+    "build": "concurrently \"npm run vite:build\" \"npm run python:build\"",
+    "vite:dev": "vite",
+    "vite:build": "tsc && vite build",
+    "python:dev": "flask --app ../app.py run --debug -p 5000",
+    "python:build": "python3 -m http.server 3000",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "atomico": "1.70.0"
+  },
+  "devDependencies": {
+    "@atomico/tsconfig": "1.1.2",
+    "@atomico/vite": "2.7.0",
+    "autoprefixer": "10.4.14",
+    "concurrently": "7.6.0",
+    "postcss": "8.4.22",
+    "tailwindcss": "3.3.1",
+    "vite": "4.2.1"
+  }
+}

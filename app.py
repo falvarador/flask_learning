@@ -4,16 +4,16 @@ from flask import Flask, render_template
 app = Flask(__name__, template_folder="src/templates",
             static_folder="src/static")
 
-with open('./src/static/dist/manifest.json') as user_file:
-    file_contents = user_file.read()
+# with open('./src/static/dist/manifest.json') as user_file:
+#     file_contents = user_file.read()
 
-manifest = json.loads(file_contents)
-
-
-js_file = manifest.get('src/components/index.js').get('file')
+# manifest = json.loads(file_contents)
 
 
-app.jinja_env.globals['js_bundle_file'] = 'dist/' + js_file
+# js_file = manifest.get('src/components/index.js').get('file')
+
+
+# app.jinja_env.globals['js_bundle_file'] = 'dist/' + js_file
 
 
 @app.route("/")

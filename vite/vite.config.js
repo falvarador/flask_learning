@@ -5,9 +5,9 @@ export default defineConfig({
   build: {
     manifest: true,
     target: "esnext",
-    outDir: "./src/static/dist",
+    outDir: "../src/static/dist",
     rollupOptions: {
-      input: "/src/components/index.js",
+      input: "/src/main.js",
     },
   },
   plugins: [

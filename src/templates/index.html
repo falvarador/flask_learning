@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Flowbite Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/styles.css')}}">
-    <script type="module" defer src="{{url_for('static', filename=js_bundle_file)}}"></script>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/styles.css')}}"> -->
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/main.js"></script>
+    <!-- <script type="module" defer src="{{url_for('static', filename=js_bundle_file)}}"></script> -->
 </head>
 
 <body>
