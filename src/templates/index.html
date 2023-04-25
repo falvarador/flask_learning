@@ -6,18 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% if enviroment == 'development' %}
+    <link rel="stylesheet" href="http://localhost:5173/src/style.css">
+    {% else %}
+    <link rel="stylesheet" href="{{url_for('static', filename=css_bundle_file)}}">
+    {% endif %}
+
     <title>Flowbite Flask</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/styles.css')}}"> -->
+    {% if debug %}
     <script type="module" src="http://localhost:5173/@vite/client"></script>
-    <script type="module" src="http://localhost:5173/main.js"></script>
-    <!-- <script type="module" defer src="{{url_for('static', filename=js_bundle_file)}}"></script> -->
+    {% endif %}
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline text-cyan-600">Hello, Flask with TailwindCSS!</h1>
-    <p class="text-lg uppercase">This is a simple Flask app with TailwindCSS.</p>
+    <h1 class="text-3xl font-bold underline text-blue-400">Hello, Flask with TailwindCSS!</h1>
+    <p class="text-lg uppercase">This is a simple Flask app with TailwindCSS, Atomico and Vite ⚡️.</p>
     <h2>demo</h2>
     <my-counter></my-counter>
+
+    {% if enviroment == 'development' %}
+    <script type="module" src="http://localhost:5173/src/main.js"></script>
+    {% else %}
+    <script type="module" defer src="{{url_for('static', filename=js_bundle_file)}}"></script>
+    {% endif %}
 </body>
 
 </html>

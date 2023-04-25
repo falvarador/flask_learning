@@ -5,8 +5,9 @@ function counter() {
   return (
     <host shadowDom>
       <p>The current count is: {count}</p>
-      <button onclick={() => setCount(count + 1)}>➕</button>
-      <button onclick={() => setCount(count - 1)}>➖</button>
+      <button onclick={() => setCount(count + 1)}>Increment ➕</button>
+      <button onclick={() => setCount(count - 1)}>Decrement ➖</button>
+      <button onclick={() => setCount(0)}>Init 0️⃣</button>
     </host>
   );
 }

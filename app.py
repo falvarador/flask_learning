@@ -4,20 +4,26 @@ from flask import Flask, render_template
 app = Flask(__name__, template_folder="src/templates",
             static_folder="src/static")
 
-# with open('./src/static/dist/manifest.json') as user_file:
-#     file_contents = user_file.read()
+manifest = '../src/static/dist/manifest.json'
 
-# manifest = json.loads(file_contents)
+with open(manifest) as user_file:
+    file_contents = user_file.read()
+
+manifest = json.loads(file_contents)
 
 
-# js_file = manifest.get('src/components/index.js').get('file')
+# css_file = manifest.get('src/components/index.css').get('file')
+js_file = manifest.get('src/components/index.js').get('file')
 
 
-# app.jinja_env.globals['js_bundle_file'] = 'dist/' + js_file
+app.jinja_env.globals['enviroment'] = 'development'
+# app.jinja_env.globals['css_bundle_file'] = 'dist/' + css_file
+app.jinja_env.globals['js_bundle_file'] = 'dist/' + js_file
 
 
 @app.route("/")
 @app.route("/index")
+@app.route("/hello")
 def index():
     return render_template("index.html")
 
